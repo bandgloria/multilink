@@ -34,61 +34,34 @@
     /* ── Header ── */
     .header {
       text-align: center;
-      margin-bottom: 44px;
+      margin-bottom: 28px;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: #8A7055;
+      margin-bottom: 20px;
     }
 
     .logo {
       width: 200px;
       height: auto;
-      margin: 20px auto 0;
+      margin: 0 auto;
       display: block;
     }
 
-    .name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      /* rose gold metallic */
-      background: linear-gradient(135deg, #C9868A 0%, #E8C4A0 40%, #B76E79 70%, #D4A5A5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 1px 3px rgba(160, 80, 90, 0.35));
-      margin-bottom: 10px;
-    }
-
-    .tagline {
+    /* ── Description ── */
+    .description {
+      text-align: center;
       font-size: 13.5px;
       font-weight: 400;
       color: #3A3A3A;
-      letter-spacing: 0.05em;
-      line-height: 2;
-    }
-
-    /* ── Divider ── */
-    .divider {
-      width: 48px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #C9A96E, #E8C84A, #C9A96E, transparent);
-      margin: 36px auto;
-    }
-
-    /* ── Trust copy ── */
-    .trust {
-      text-align: center;
-      font-size: 14px;
-      font-weight: 400;
-      color: #2A2A2A;
       line-height: 2.2;
-      margin-bottom: 44px;
-      letter-spacing: 0.02em;
-    }
-
-    .trust strong {
-      font-weight: 600;
-      color: #111;
+      margin-bottom: 40px;
+      letter-spacing: 0.03em;
     }
 
     /* ── Buttons ── */
@@ -193,58 +166,74 @@
       transform: translateY(-1px);
     }
 
-    /* 쿠폰 왼쪽 빨강 포인트 */
-    .btn-accent-line {
-      border-left: 3px solid rgba(200, 30, 50, 0.7);
+
+    /* ── Brand Marquee ── */
+    .marquee-section {
+      margin: 0 -24px 40px;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
     }
 
-    /* ── 쇼핑몰: 골드 + 로즈골드 혼합 글래스 ── */
-    .btn-shop {
-      background: linear-gradient(135deg,
-        rgba(255, 235, 120, 0.28) 0%,
-        rgba(230, 175, 185, 0.25) 100%
-      );
-      color: #1A1000;
-      border: 1px solid rgba(215, 168, 100, 0.6);
-      border-top: 1px solid rgba(255, 240, 180, 0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow:
-        inset 0 1px 0 rgba(255,245,200,0.45),
-        0 3px 14px rgba(160,120,60,0.15);
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+      align-items: center;
     }
 
-    .btn-shop .btn-label {
-      color: rgba(100, 70, 20, 0.6);
+    .marquee-track:hover {
+      animation-play-state: paused;
     }
 
-    .btn-shop:hover {
-      background: linear-gradient(135deg,
-        rgba(255, 240, 130, 0.38) 0%,
-        rgba(235, 185, 195, 0.32) 100%
-      );
-      transform: translateY(-1px);
+    .marquee-list {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      padding: 6px 0;
     }
 
-    /* ── 블로그: 준비 중 (페이드 글래스) ── */
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.15);
-      color: #AAA;
-      border: 1px solid rgba(200, 190, 185, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      font-size: 12.5px;
-      letter-spacing: 0.05em;
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      padding: 0 22px;
+      flex-shrink: 0;
     }
 
-    .btn-ghost .btn-label {
-      color: #C0B8B4;
+    .marquee-logo {
+      height: 20px;
+      width: auto;
+      max-width: 110px;
+      object-fit: contain;
+      filter: grayscale(1) contrast(1.05);
+      opacity: 0.5;
+      display: block;
+      mix-blend-mode: multiply;
     }
 
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(215, 168, 100, 0.5);
-      color: #888;
+    .marquee-text-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13.5px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #7A6A58;
+      opacity: 0.7;
+      white-space: nowrap;
+    }
+
+    .marquee-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #C9A96E, #E8C84A);
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
 
     /* ── Footer ── */
@@ -264,42 +253,67 @@
   <div class="container">
 
     <header class="header">
-      <p class="name">윤실장</p>
-      <p class="tagline">
-        골프웨어 &amp; 해외 직수입 의류<br>
-        정품만, 4년째
-      </p>
+      <p class="subtitle">나만의 프라이빗 쇼핑몰</p>
       <img src="gloria-logo.png" alt="Gloria" class="logo">
     </header>
 
-    <div class="divider"></div>
-
-    <p class="trust">
-      타이틀리스트, 폴로랄프로렌, AMI, 꼼데가르송—<br>
-      <strong>직수입 정품</strong>을 <strong>멤버 전용 가격</strong>으로.<br>
-      걱정은 내려놓고, 먼저 물어봐요.
+    <p class="description">
+      글로리아 밴드에 가입하시면 정품 병행수입의류,<br>
+      유명브랜드 골프웨어를 특별한 회원가로<br>
+      구입하실 수 있습니다.
     </p>
+
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <ul class="marquee-list">
+          <li class="marquee-item"><img class="marquee-logo" src="logos/titleist.svg" alt="Titleist"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><span class="marquee-text-brand">FootJoy</span></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/callaway.svg" alt="Callaway" style="height:28px;"</li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/taylormade.svg" alt="TaylorMade"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><span class="marquee-text-brand">Cutter &amp; Buck</span></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/ralphlauren.png" alt="Polo Ralph Lauren" style="height:56px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/ami.png" alt="AMI Paris" style="height:28px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/stussy.png" alt="Stüssy" style="height:32px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/kitsune.svg" alt="Maison Kitsuné"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/cdg.svg" alt="Comme des Garçons"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/lacoste.svg" alt="Lacoste" style="height:10px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/tommy.png" alt="Tommy Hilfiger" style="height:58px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/arcteryx.png" alt="Arc'teryx" style="height:36px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/apc.png" alt="A.P.C." style="height:13px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/saintlaurent.png" alt="Saint Laurent" style="height:15px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/ck.png" alt="Calvin Klein" style="height:13px;"></li><span class="marquee-dot"></span>
+        </ul>
+        <ul class="marquee-list" aria-hidden="true">
+          <li class="marquee-item"><img class="marquee-logo" src="logos/titleist.svg" alt="Titleist"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><span class="marquee-text-brand">FootJoy</span></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/callaway.svg" alt="Callaway" style="height:28px;"</li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/taylormade.svg" alt="TaylorMade"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><span class="marquee-text-brand">Cutter &amp; Buck</span></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/ralphlauren.png" alt="Polo Ralph Lauren" style="height:56px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/ami.png" alt="AMI Paris" style="height:28px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/stussy.png" alt="Stüssy" style="height:32px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/kitsune.svg" alt="Maison Kitsuné"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/cdg.svg" alt="Comme des Garçons"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/lacoste.svg" alt="Lacoste" style="height:10px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/tommy.png" alt="Tommy Hilfiger" style="height:58px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/arcteryx.png" alt="Arc'teryx" style="height:36px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/apc.png" alt="A.P.C." style="height:13px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/saintlaurent.png" alt="Saint Laurent" style="height:15px;"></li><span class="marquee-dot"></span>
+          <li class="marquee-item"><img class="marquee-logo" src="logos/ck.png" alt="Calvin Klein" style="height:13px;"></li><span class="marquee-dot"></span>
+        </ul>
+      </div>
+    </div>
 
     <div class="buttons">
 
-      <a href="http://pf.kakao.com/_xofhxlX" class="btn btn-primary" target="_blank" rel="noopener">
+      <a href="https://band.us/n/a9acb341Q6xbg" class="btn btn-primary" target="_blank" rel="noopener">
+        <span class="btn-label">멤버십 가입</span>
+        글로리아 밴드 가입하기
+      </a>
+
+      <a href="http://pf.kakao.com/_xofhxlX" class="btn btn-secondary" target="_blank" rel="noopener">
         <span class="btn-label">문의 · 상담</span>
         카카오톡 채널로 연결하기
-      </a>
-
-      <a href="#" class="btn btn-secondary btn-accent-line">
-        <span class="btn-label">신규 멤버 혜택</span>
-        첫 구매 쿠폰 받기
-      </a>
-
-      <a href="https://insio.co.kr/m/gloria" class="btn btn-shop" target="_blank" rel="noopener">
-        <span class="btn-label">쇼핑몰</span>
-        상품 둘러보기
-      </a>
-
-      <a href="#" class="btn btn-ghost">
-        <span class="btn-label">coming soon</span>
-        블로그 · 착용 후기
       </a>
 
     </div>
