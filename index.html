@@ -190,7 +190,11 @@
       100% { background-position: 220% center; }
     }
 
-    .logo-wrap { display: inline-block; position: relative; }
+    .logo-wrap {
+      display: inline-block;
+      position: relative;
+      overflow: hidden; /* 광택선을 로고 영역 안에서만 */
+    }
 
     /* 로즈골드 빛 반사 — 정적 글로우 */
     .logo-wrap::before {
@@ -204,6 +208,35 @@
       pointer-events: none;
     }
 
+
+    /* 사선 금속 광택선 */
+    .logo-wrap::after {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -80%;
+      width: 55%;
+      height: 140%;
+      background: linear-gradient(
+        105deg,
+        transparent    35%,
+        rgba(255,245,200,0.12) 45%,
+        rgba(255,255,255,0.45) 50%,
+        rgba(255,235,170,0.18) 55%,
+        transparent    65%
+      );
+      transform: skewX(-10deg);
+      animation: logo-shine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes logo-shine {
+      0%   { left: -80%; opacity: 0; }
+      8%   { opacity: 1; }
+      38%  { left: 120%; opacity: 1; }
+      40%  { opacity: 0; }
+      100% { left: 120%; opacity: 0; }
+    }
 
     .logo { width: 260px; height: auto; display: block; margin-bottom: -70px; }
 
