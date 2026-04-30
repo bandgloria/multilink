@@ -55,6 +55,18 @@
       overflow-x: hidden;
     }
 
+    /* 스크롤 시 이동하는 골드 광택 레이어 */
+    .sheen-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 30% 20%, rgba(255,220,150,0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 75% 65%, rgba(220,170,80,0.18) 0%, transparent 55%);
+      will-change: transform;
+    }
+
     /* SVG grain: 크림 배경에 미세 메탈릭 텍스처 */
     .grain {
       position: fixed;
@@ -92,21 +104,41 @@
       opacity: 0;
       user-select: none;
     }
-    .sp:nth-child(1)  { left:  7%; top:12%;  font-size: 9px;  animation-duration:4.2s; animation-delay:0.0s; }
-    .sp:nth-child(2)  { left: 88%; top:18%;  font-size:12px;  animation-duration:5.8s; animation-delay:1.1s; }
-    .sp:nth-child(3)  { left: 18%; top:42%;  font-size: 7px;  animation-duration:5.0s; animation-delay:2.3s; }
-    .sp:nth-child(4)  { left: 93%; top:52%;  font-size:10px;  animation-duration:6.5s; animation-delay:0.6s; }
-    .sp:nth-child(5)  { left:  3%; top:68%;  font-size:13px;  animation-duration:4.8s; animation-delay:1.7s; }
-    .sp:nth-child(6)  { left: 72%; top:77%;  font-size: 8px;  animation-duration:5.3s; animation-delay:3.1s; }
-    .sp:nth-child(7)  { left: 48%; top:10%;  font-size:11px;  animation-duration:6.1s; animation-delay:0.9s; }
-    .sp:nth-child(8)  { left: 33%; top:88%;  font-size: 9px;  animation-duration:4.6s; animation-delay:2.0s; }
-    .sp:nth-child(9)  { left: 62%; top:48%;  font-size: 7px;  animation-duration:5.4s; animation-delay:1.4s; }
-    .sp:nth-child(10) { left: 22%; top:58%;  font-size:11px;  animation-duration:7.0s; animation-delay:0.4s; }
-    .sp:nth-child(11) { left: 96%; top:32%;  font-size: 8px;  animation-duration:3.9s; animation-delay:2.7s; }
-    .sp:nth-child(12) { left: 44%; top:94%;  font-size:10px;  animation-duration:5.7s; animation-delay:0.7s; }
-    .sp:nth-child(13) { left: 55%; top:28%;  font-size: 6px;  animation-duration:4.4s; animation-delay:3.5s; }
-    .sp:nth-child(14) { left: 11%; top:80%;  font-size:12px;  animation-duration:6.2s; animation-delay:1.9s; }
-    .sp:nth-child(15) { left: 79%; top: 6%;  font-size: 8px;  animation-duration:5.1s; animation-delay:0.2s; }
+    .sp:nth-child(1)  { left:  7%; top:12%;  font-size:16px;  animation-duration:4.2s; animation-delay:0.0s; }
+    .sp:nth-child(2)  { left: 88%; top:18%;  font-size:22px;  animation-duration:5.8s; animation-delay:1.1s; }
+    .sp:nth-child(3)  { left: 18%; top:42%;  font-size:14px;  animation-duration:5.0s; animation-delay:2.3s; }
+    .sp:nth-child(4)  { left: 93%; top:52%;  font-size:20px;  animation-duration:6.5s; animation-delay:0.6s; }
+    .sp:nth-child(5)  { left:  3%; top:68%;  font-size:26px;  animation-duration:4.8s; animation-delay:1.7s; }
+    .sp:nth-child(6)  { left: 72%; top:77%;  font-size:18px;  animation-duration:5.3s; animation-delay:3.1s; }
+    .sp:nth-child(7)  { left: 48%; top:10%;  font-size:24px;  animation-duration:6.1s; animation-delay:0.9s; }
+    .sp:nth-child(8)  { left: 33%; top:88%;  font-size:16px;  animation-duration:4.6s; animation-delay:2.0s; }
+    .sp:nth-child(9)  { left: 62%; top:48%;  font-size:14px;  animation-duration:5.4s; animation-delay:1.4s; }
+    .sp:nth-child(10) { left: 22%; top:58%;  font-size:20px;  animation-duration:7.0s; animation-delay:0.4s; }
+    .sp:nth-child(11) { left: 96%; top:32%;  font-size:18px;  animation-duration:3.9s; animation-delay:2.7s; }
+    .sp:nth-child(12) { left: 44%; top:94%;  font-size:22px;  animation-duration:5.7s; animation-delay:0.7s; }
+    .sp:nth-child(13) { left: 55%; top:28%;  font-size:14px;  animation-duration:4.4s; animation-delay:3.5s; }
+    .sp:nth-child(14) { left: 11%; top:80%;  font-size:24px;  animation-duration:6.2s; animation-delay:1.9s; }
+    .sp:nth-child(15) { left: 79%; top: 6%;  font-size:18px;  animation-duration:5.1s; animation-delay:0.2s; }
+    .sp:nth-child(16) { left: 38%; top:22%;  font-size:28px;  animation-duration:4.9s; animation-delay:0.3s; }
+    .sp:nth-child(17) { left: 65%; top:38%;  font-size:16px;  animation-duration:6.3s; animation-delay:1.6s; }
+    .sp:nth-child(18) { left: 12%; top:25%;  font-size:20px;  animation-duration:5.5s; animation-delay:2.8s; }
+    .sp:nth-child(19) { left: 82%; top:60%;  font-size:14px;  animation-duration:4.3s; animation-delay:0.5s; }
+    .sp:nth-child(20) { left: 28%; top:72%;  font-size:22px;  animation-duration:5.9s; animation-delay:1.3s; }
+    .sp:nth-child(21) { left: 58%; top:85%;  font-size:18px;  animation-duration:4.7s; animation-delay:3.8s; }
+    .sp:nth-child(22) { left:  2%; top:35%;  font-size:26px;  animation-duration:6.4s; animation-delay:0.8s; }
+    .sp:nth-child(23) { left: 76%; top:14%;  font-size:16px;  animation-duration:5.2s; animation-delay:2.1s; }
+    .sp:nth-child(24) { left: 42%; top:55%;  font-size:20px;  animation-duration:4.5s; animation-delay:1.0s; }
+    .sp:nth-child(25) { left: 90%; top:42%;  font-size:24px;  animation-duration:6.8s; animation-delay:3.3s; }
+    .sp:nth-child(26) { left: 15%; top:92%;  font-size:18px;  animation-duration:5.6s; animation-delay:0.1s; }
+    .sp:nth-child(27) { left: 68%; top:22%;  font-size:14px;  animation-duration:4.1s; animation-delay:2.5s; }
+    .sp:nth-child(28) { left: 35%; top:38%;  font-size:22px;  animation-duration:5.8s; animation-delay:1.8s; }
+    .sp:nth-child(29) { left: 52%; top:70%;  font-size:16px;  animation-duration:4.6s; animation-delay:3.0s; }
+    .sp:nth-child(30) { left: 85%; top:88%;  font-size:20px;  animation-duration:6.0s; animation-delay:0.9s; }
+    .sp:nth-child(31) { left: 25%; top: 8%;  font-size:28px;  animation-duration:5.3s; animation-delay:2.4s; }
+    .sp:nth-child(32) { left: 70%; top:50%;  font-size:16px;  animation-duration:4.8s; animation-delay:1.2s; }
+    .sp:nth-child(33) { left:  8%; top:55%;  font-size:24px;  animation-duration:6.6s; animation-delay:3.6s; }
+    .sp:nth-child(34) { left: 47%; top:32%;  font-size:18px;  animation-duration:5.0s; animation-delay:0.6s; }
+    .sp:nth-child(35) { left: 92%; top:75%;  font-size:22px;  animation-duration:4.4s; animation-delay:2.9s; }
 
     @keyframes sp-anim {
       0%   { opacity:0;   transform:translateY(0)     scale(0) rotate(0deg);   }
@@ -135,20 +167,21 @@
       font-weight: 400;
       letter-spacing: 0.44em;
       text-transform: uppercase;
+      /* 밝은 배경에서 확실히 보이도록: 어두운 골드만 사용 */
       background: linear-gradient(90deg,
-        #A07820 0%,
-        var(--gold-mid)  20%,
-        var(--gold-light) 50%,
-        var(--gold-mid)  80%,
-        #A07820 100%
+        #4A2E00 0%,
+        #8B6200 18%,
+        #C09825 45%,
+        #E8B830 50%,
+        #C09825 55%,
+        #8B6200 82%,
+        #4A2E00 100%
       );
       background-size: 220% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmer 5s linear infinite;
-      /* 밝은 배경에서 골드가 보이도록 그림자 추가 */
-      filter: drop-shadow(0 1px 2px rgba(120,70,0,0.45));
       margin-bottom: 22px;
     }
 
@@ -159,22 +192,26 @@
 
     .logo-wrap { display: inline-block; position: relative; }
 
-    /* 로즈골드 빛 반사 */
+    /* 로즈골드 빛 반사 — 애니메이션 제거, 정적 글로우만 유지 */
     .logo-wrap::before {
       content: '';
       position: absolute;
       inset: -20px -28px;
       background: radial-gradient(ellipse,
-        rgba(242,191,172,0.55) 0%,
+        rgba(242,191,172,0.45) 0%,
         transparent 65%
       );
       pointer-events: none;
-      animation: logo-glow 3s ease-in-out infinite alternate;
     }
 
-    @keyframes logo-glow {
-      from { opacity: 0.5; transform: scale(0.96); }
-      to   { opacity: 1.0; transform: scale(1.04); }
+    /* 로고 아래 드롭섀도 (이펙트 없이 정적) */
+    .logo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; left: 15%;
+      width: 70%; height: 10px;
+      background: radial-gradient(ellipse, rgba(115,59,47,0.18) 0%, transparent 70%);
+      filter: blur(4px);
     }
 
     .logo { width: 260px; height: auto; display: block; }
@@ -254,14 +291,14 @@
       flex-shrink: 0;
     }
 
-    /* 배경 제거된 투명 PNG — blend mode 불필요 */
     .marquee-logo {
       height: 20px;
       width: auto;
       max-width: 110px;
       object-fit: contain;
-      filter: grayscale(1) contrast(1.3) brightness(0.82);
-      opacity: 0.68;
+      filter: grayscale(1) contrast(1.3);
+      mix-blend-mode: multiply;
+      opacity: 0.65;
       display: block;
     }
 
@@ -432,6 +469,9 @@
 </head>
 <body>
 
+  <!-- 스크롤 연동 골드 광택 레이어 -->
+  <div class="sheen-layer" aria-hidden="true"></div>
+
   <!-- SVG grain: 미세 메탈릭 텍스처 -->
   <svg class="grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
     <filter id="gf" x="0" y="0" width="100%" height="100%"
@@ -448,11 +488,13 @@
   <div class="top-band" aria-hidden="true"></div>
 
   <div class="sparkles" aria-hidden="true">
-    <span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span>
-    <span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span>
-    <span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span>
-    <span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span>
-    <span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span>
+    <span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span>
+    <span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span>
+    <span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span>
+    <span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span>
+    <span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span>
+    <span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span>
+    <span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span><span class="sp">✧</span><span class="sp">✦</span>
   </div>
 
   <div class="container">
@@ -539,5 +581,23 @@
     </footer>
 
   </div>
+  <script>
+    /* 스크롤 시 골드 광택 레이어 이동 — 금속 빛 반사 느낌 */
+    (function() {
+      var sheen = document.querySelector('.sheen-layer');
+      if (!sheen) return;
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var y = window.scrollY;
+            sheen.style.transform = 'translateY(' + (y * 0.18) + 'px) translateX(' + (y * 0.04) + 'px)';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
