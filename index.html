@@ -135,19 +135,20 @@
       font-weight: 400;
       letter-spacing: 0.44em;
       text-transform: uppercase;
-      /* 골드 시머 */
       background: linear-gradient(90deg,
-        var(--gold-warm) 0%,
-        var(--gold-mid)  25%,
+        #A07820 0%,
+        var(--gold-mid)  20%,
         var(--gold-light) 50%,
-        var(--gold-mid)  75%,
-        var(--gold-warm) 100%
+        var(--gold-mid)  80%,
+        #A07820 100%
       );
       background-size: 220% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: shimmer 5s linear infinite;
+      /* 밝은 배경에서 골드가 보이도록 그림자 추가 */
+      filter: drop-shadow(0 1px 2px rgba(120,70,0,0.45));
       margin-bottom: 22px;
     }
 
@@ -171,21 +172,12 @@
       animation: logo-glow 3s ease-in-out infinite alternate;
     }
 
-    .logo-wrap::after {
-      content: '';
-      position: absolute;
-      bottom: -10px; left: 15%;
-      width: 70%; height: 10px;
-      background: radial-gradient(ellipse, rgba(115,59,47,0.20) 0%, transparent 70%);
-      filter: blur(4px);
-    }
-
     @keyframes logo-glow {
       from { opacity: 0.5; transform: scale(0.96); }
       to   { opacity: 1.0; transform: scale(1.04); }
     }
 
-    .logo { width: 200px; height: auto; display: block; }
+    .logo { width: 260px; height: auto; display: block; }
 
     /* ── Gold divider ── */
     .gold-divider {
@@ -230,15 +222,12 @@
 
     /* ── Brand Marquee ── */
     .marquee-section {
-      margin: 0 -24px 36px;
+      margin: 0 0 36px;
       overflow: hidden;
-      mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
-      /* 1단계: 순백 배경 + multiply → 섹션 자체가 페이지에 흡수되면서
-         내부 로고 흰 박스도 함께 사라짐 */
-      background: rgba(242,191,172,0.20);
-      border-top:    2px solid rgba(115,59,47,0.28);
-      border-bottom: 2px solid rgba(115,59,47,0.28);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      background: rgba(242,191,172,0.18);
+      border-radius: 14px;
       padding: 13px 0;
     }
 
