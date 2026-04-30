@@ -445,14 +445,14 @@
         transparent            70%
       );
       transform: skewX(-8deg);
-      animation: btn-shine 4s ease-in-out infinite;
+      animation: btn-shine 8s ease-in-out infinite;
       pointer-events: none;
       z-index: 1;
     }
 
     @keyframes btn-shine {
       0%   { left: -90%; }
-      38%  { left: 130%; }
+      25%  { left: 130%; }
       100% { left: 130%; }
     }
 
@@ -487,33 +487,55 @@
         0  0   45px rgba(212,175,55,0.60);
     }
 
-    /* ── Secondary: 로즈골드 글래스 ── */
+    /* ── Secondary: 로즈골드 양각 ── */
     .btn-secondary {
-      background: linear-gradient(145deg,
-        rgba(242,191,172,0.45) 0%,
-        rgba(217,151,113,0.35) 50%,
-        rgba(242,191,172,0.40) 100%
+      background: linear-gradient(180deg,
+        #FFF0EA  0%,
+        #F5CEBA  8%,
+        #E0A888 22%,
+        #CC9070 38%,
+        #C08868 52%,
+        #D09A7A 66%,
+        #E8B898 80%,
+        #B07050 92%,
+        #8A5038 100%
       );
-      color: var(--p-dark);
-      border: 1px solid rgba(166,105,83,0.45);
-      border-top: 1px solid rgba(242,191,172,0.80);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      color: #2A1008;
+      border-top:    1.5px solid rgba(255,240,228,0.95);
+      border-left:   1.5px solid rgba(248,220,200,0.70);
+      border-right:  1.5px solid rgba(100,55,30,0.55);
+      border-bottom: 1.5px solid rgba(80,40,20,0.75);
       box-shadow:
-        inset 0 1px 0 rgba(255,235,220,0.60),
-        0 4px 18px rgba(115,59,47,0.12);
+        inset 0  2px  4px rgba(255,240,225,0.70),
+        inset 0 -2px  4px rgba(60,25,10,0.35),
+        inset 2px 0   3px rgba(255,225,205,0.28),
+        inset -2px 0  3px rgba(70,30,10,0.22),
+        0  5px  9px rgba(80,40,15,0.45),
+        0 10px 24px rgba(100,55,20,0.28),
+        0  2px  3px rgba(60,25,10,0.42);
     }
 
-    .btn-secondary .btn-label { color: var(--p-brown); }
+    .btn-secondary .btn-label { color: #4A2810; opacity: 0.78; }
 
     .btn-secondary:hover {
-      transform: translateY(-3px);
-      border-color: rgba(212,175,55,0.55);
-      border-top-color: rgba(245,225,120,0.75);
+      transform: translateY(-2px);
+      background: linear-gradient(180deg,
+        #FFF5EF  0%,
+        #F8D5C0  8%,
+        #E8B090 22%,
+        #D49878 38%,
+        #C89070 52%,
+        #D8A082 66%,
+        #F0C0A0 80%,
+        #BA7858 92%,
+        #925840 100%
+      );
       box-shadow:
-        inset 0 1px 0 rgba(255,235,220,0.70),
-        0 0 22px rgba(212,175,55,0.25),
-        0 6px 24px rgba(115,59,47,0.20);
+        inset 0  2px  4px rgba(255,240,225,0.80),
+        inset 0 -2px  4px rgba(60,25,10,0.40),
+        0  4px  8px rgba(80,40,15,0.48),
+        0  8px 20px rgba(100,55,20,0.32),
+        0  0   20px rgba(200,130,80,0.30);
     }
 
     /* ── Footer ── */
