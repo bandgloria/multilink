@@ -209,39 +209,11 @@
       z-index: 0;
     }
 
-    /* 광택 이펙트 전용 래퍼: overflow:hidden을 여기서만 */
+    /* 광택 이펙트 래퍼 (이펙트 제거, 구조만 유지) */
     .logo-shine-box {
       position: relative;
-      overflow: hidden;
       display: inline-block;
       z-index: 1;
-    }
-
-    /* 사선 금속 광택선 */
-    .logo-shine-box::after {
-      content: '';
-      position: absolute;
-      top: -10%;
-      left: -90%;
-      width: 50%;
-      height: 120%;
-      background: linear-gradient(
-        108deg,
-        transparent            32%,
-        rgba(255,248,210,0.18) 44%,
-        rgba(255,255,255,0.60) 50%,
-        rgba(255,240,180,0.22) 56%,
-        transparent            68%
-      );
-      transform: skewX(-8deg);
-      animation: logo-shine 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes logo-shine {
-      0%   { left: -90%; }
-      40%  { left: 130%; }
-      100% { left: 130%; }
     }
 
     .logo { width: 260px; height: auto; display: block; margin-bottom: -40px; }
@@ -397,52 +369,122 @@
     }
 
     /* ── Primary: #733B2F 딥브라운 + 골드 블링 ── */
+    /* ── Primary: 실제 금속 골드 양각 버튼 ── */
     .btn-primary {
-      background: linear-gradient(145deg,
-        #5A2820 0%,
-        var(--p-dark) 40%,
-        #8A4535 60%,
-        var(--p-dark) 80%,
-        #5A2820 100%
+      /* 상단 하이라이트 → 중간 딥골드 → 하단 음영: 금속판 광원 재현 */
+      background: linear-gradient(180deg,
+        #FFFDE0  0%,    /* 상단 강한 반사 */
+        #F7D930  4%,
+        #E8BF00 14%,
+        #C99A00 26%,
+        #B88800 40%,    /* 중앙 딥 골드 */
+        #C99A00 55%,
+        #DDB400 68%,
+        #F0CB20 80%,
+        #C08000 92%,    /* 하단 음영 */
+        #8B5E00 100%
       );
-      color: var(--gold-light);
-      border: 1px solid rgba(212,175,55,0.50);
-      border-top: 1px solid rgba(245,225,120,0.70);
-      animation: btn-breathe 3s ease-in-out infinite alternate;
+      color: #2A1400;
+      /* 베벨 엣지: 상단 밝음 / 하단 어둠 → 양각 */
+      border-top:    1.5px solid rgba(255,252,200,0.95);
+      border-left:   1.5px solid rgba(255,240,150,0.70);
+      border-right:  1.5px solid rgba(120,80,0,0.55);
+      border-bottom: 1.5px solid rgba(80,50,0,0.75);
+      /* 양각 그림자 */
+      box-shadow:
+        inset 0  2px  4px rgba(255,255,200,0.75),  /* 상단 내부 빛 */
+        inset 0 -2px  4px rgba(60,35,0,0.40),       /* 하단 내부 음영 */
+        inset 2px 0   3px rgba(255,240,160,0.30),   /* 좌 내부 빛 */
+        inset -2px 0  3px rgba(80,50,0,0.25),        /* 우 내부 음영 */
+        0  6px 10px rgba(80,50,0,0.55),              /* 직하 그림자 */
+        0 12px 28px rgba(100,65,0,0.35),             /* 깊은 그림자 */
+        0  2px  4px rgba(60,35,0,0.50),              /* 엣지 선명도 */
+        0  0   22px rgba(212,175,55,0.35);           /* 골드 글로우 */
+      animation: gold-breathe 3s ease-in-out infinite alternate;
     }
 
-    @keyframes btn-breathe {
+    @keyframes gold-breathe {
       from {
         box-shadow:
-          inset 0 1px 0 rgba(245,225,120,0.22),
-          0 6px 28px rgba(115,59,47,0.35),
-          0 0 18px rgba(212,175,55,0.22);
+          inset 0  2px  4px rgba(255,255,200,0.75),
+          inset 0 -2px  4px rgba(60,35,0,0.40),
+          inset 2px 0   3px rgba(255,240,160,0.30),
+          inset -2px 0  3px rgba(80,50,0,0.25),
+          0  6px 10px rgba(80,50,0,0.55),
+          0 12px 28px rgba(100,65,0,0.35),
+          0  2px  4px rgba(60,35,0,0.50),
+          0  0   22px rgba(212,175,55,0.30);
       }
       to {
         box-shadow:
-          inset 0 1px 0 rgba(245,225,120,0.28),
-          0 6px 32px rgba(115,59,47,0.45),
-          0 0 40px rgba(212,175,55,0.42),
-          0 0 75px rgba(212,175,55,0.14);
+          inset 0  2px  4px rgba(255,255,200,0.80),
+          inset 0 -2px  4px rgba(60,35,0,0.45),
+          inset 2px 0   3px rgba(255,240,160,0.35),
+          inset -2px 0  3px rgba(80,50,0,0.30),
+          0  8px 14px rgba(80,50,0,0.60),
+          0 16px 36px rgba(100,65,0,0.42),
+          0  3px  5px rgba(60,35,0,0.55),
+          0  0   38px rgba(212,175,55,0.52);
       }
     }
 
+    /* 버튼 사선 금속 광택선 */
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -90%;
+      width: 45%;
+      height: 120%;
+      background: linear-gradient(
+        108deg,
+        transparent            30%,
+        rgba(255,252,220,0.20) 43%,
+        rgba(255,255,255,0.65) 50%,
+        rgba(255,248,200,0.22) 57%,
+        transparent            70%
+      );
+      transform: skewX(-8deg);
+      animation: btn-shine 4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes btn-shine {
+      0%   { left: -90%; }
+      38%  { left: 130%; }
+      100% { left: 130%; }
+    }
+
     .btn-primary .btn-label {
-      background: linear-gradient(90deg, var(--gold-warm), var(--gold-light), var(--gold-warm));
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 4s linear infinite;
+      color: #4A2E00;
+      opacity: 0.80;
+      -webkit-text-fill-color: #4A2E00;
+      position: relative;
+      z-index: 2;
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       animation: none;
+      background: linear-gradient(180deg,
+        #FFFDE8  0%,
+        #FAE040  4%,
+        #EFC600 14%,
+        #D4A500 26%,
+        #C09200 40%,
+        #D4A500 55%,
+        #E8C020 68%,
+        #F5D530 80%,
+        #C88500 92%,
+        #966500 100%
+      );
       box-shadow:
-        inset 0 1px 0 rgba(245,225,120,0.32),
-        0 8px 36px rgba(115,59,47,0.50),
-        0 0 56px rgba(212,175,55,0.55);
+        inset 0  2px  4px rgba(255,255,220,0.85),
+        inset 0 -2px  4px rgba(60,35,0,0.45),
+        0  4px  8px rgba(80,50,0,0.50),
+        0 10px 24px rgba(100,65,0,0.38),
+        0  0   45px rgba(212,175,55,0.60);
     }
 
     /* ── Secondary: 로즈골드 글래스 ── */
@@ -591,7 +633,7 @@
 
       <a href="https://band.us/n/a9acb341Q6xbg" class="btn btn-primary" target="_blank" rel="noopener">
         <span class="btn-label">멤버십 가입</span>
-        글로리아 밴드 가입하기
+        <span style="position:relative;z-index:2;">글로리아 밴드 가입하기</span>
       </a>
 
       <a href="https://gloria.gloria27.com/" class="btn btn-secondary" target="_blank" rel="noopener">
